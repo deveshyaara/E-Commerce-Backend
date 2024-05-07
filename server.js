@@ -6,6 +6,7 @@ const db_config = require("./configs/db.config")
 const user_model = require("./models/user.model")
 const bcrypt = require("bcryptjs")
 const app = express()
+app.use(express.json())
 
 // Create an Admin User at the starting of the application if not present
 // Connect with mongoDb
@@ -22,7 +23,7 @@ async function init(){
     try{
         let user = await user_model.findOne({userId : "admin"})
         if(user){
-            console.log("User is already present")
+            console.log("Admin is already present")
             return
         }
 
@@ -44,6 +45,8 @@ async function init(){
         console.log("Error while creating admin", err)
     }
 }
+// Stich the route to the server
+require("./routes/auth.routes")(app)
 // Start the server 
 app.listen(server_configs.PORT, ()=>{
     console.log("Server Started at port num :", server_configs.PORT)
