@@ -1,0 +1,17 @@
+{
+  "name": "ecommproject",
+  "version": "1.0.0",
+  "description": "\"Building a dynamic backend for smooth ecommerce transactions.\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Devesh Tiwari",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.4"
+  }
+}
