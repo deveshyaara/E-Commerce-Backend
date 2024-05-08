@@ -1,5 +1,7 @@
 const bcrypt = require("bcryptjs")
 const user_model = require("../models/user.model")
+const jwt = require("jsonwebtoken")
+const secret = require("../configs/auth.config")
 // Logic to register the user
 exports.signup = async (req, res) =>{
     // Logic to create user
@@ -39,4 +41,31 @@ exports.signup = async (req, res) =>{
 
     // Return the responce back to the user
 
+}
+exports.signin = async (req, res)=>{
+    // Check if the userID is present
+    const user = await user_model.findOne({userId : req.body.userId})
+    if(user==null){
+        return res.status(400).send({
+            message : "User id passed is not valid user id"
+        })
+    }
+    // Check if the password is correct
+    const isPasswordValid = bcrypt.compareSync(req.body.password, user.password)
+    if(!isPasswordValid){
+        return res.status(401).send({
+            message : "Wrong password passed"
+        })
+    }
+    // Using jwt token we will create the access token with a TTL and return
+    const token = jwt.sign({id : user.userId}, secret.secret, {
+        expiresIn : 240
+    })
+    res.status(200).send({
+        name : user.name,
+        userId : user.userId,
+        email : user.email,
+        userType : user.userType,
+        accessToken : token
+    })
 }

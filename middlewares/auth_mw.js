@@ -1,3 +1,4 @@
+const user_model = require("../models/user.model")
 // it will check that body is perfect and correct
 const verifySignUpBody = async (req, res, next)=>{
     try{
@@ -32,7 +33,7 @@ const verifySignUpBody = async (req, res, next)=>{
 
     }catch(err){
         console.log("Error while validating request body")
-        res.status(500),send({
+        return res.status(500).send({
             message : "Error while validating request body"
         })
     }
