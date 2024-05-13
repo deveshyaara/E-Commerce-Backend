@@ -1,4 +1,4 @@
 // This file contain server config
 module.exports = {
-    PORT : 8888
+    PORT : 8889
 }
