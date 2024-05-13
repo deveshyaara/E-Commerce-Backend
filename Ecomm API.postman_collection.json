@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "89deb452-77a7-4a91-be12-5e652071f9c6",
+		"name": "Ecomm API",
+		"description": "### Description:\n\nThis project provides a RESTful API for managing e-commerce operations such as managing users, categories, products, and carts. It allows users to register, login, browse categories, view products, add products to carts, and more.\n\n### Endpoints:\n\n#### Authentication:\n\n- **POST /ecomm/api/v1/auth/signup**: Register a new user.\n    \n- **POST /ecomm/api/v1/auth/login**: Login with user credentials.\n    \n\n#### Categories:\n\n- **POST /ecomm/api/v1/categories**: Create a new category.\n    \n- **GET /ecomm/api/v1/categories**: Retrieve all categories.\n    \n- **GET /ecomm/api/v1/categories/:categoryId**: Retrieve a category by ID.\n    \n- **PUT /ecomm/api/v1/categories/:categoryId**: Update a category by ID.\n    \n- **DELETE /ecomm/api/v1/categories/:categoryId**: Delete a category by ID.\n    \n\n#### Products:\n\n- **POST /ecomm/api/v1/products**: Create a new product.\n    \n- **GET /ecomm/api/v1/products**: Retrieve all products.\n    \n- **GET /ecomm/api/v1/products/:productId**: Retrieve a product by ID.\n    \n- **PUT /ecomm/api/v1/products/:productId**: Update a product by ID.\n    \n- **DELETE /ecomm/api/v1/products/:productId**: Delete a product by ID.\n    \n\n#### Carts:\n\n- **POST /ecomm/api/v1/carts**: Create a new cart.\n    \n- **GET /ecomm/api/v1/carts/:userId**: Retrieve a cart by user ID.\n    \n- **PUT /ecomm/api/v1/carts/:userId**: Update a cart by user ID.\n    \n\n### Authentication:\n\nFor endpoints requiring authentication, include the `x-access-token` header in the request with a valid JWT token obtained from the login endpoint.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34764585"
+	},
+	"item": [
+		{
+			"name": "User Sign in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\" : \"admin\",\r\n      \"password\" : \"Welcome1\"\r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8888/ecomm/api/v1/auth/signin"
+			},
+			"response": []
+		},
+		{
+			"name": "User SignUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" :\"Devesh Tiwari\",\r\n    \"userId\" : \"devesh001\",\r\n    \"email\" : \"tiwaridevesh887@gmail.com\",\r\n    \"password\" : \"Welcome1123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8888/ecomm/api/v1/auth/signup"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Category",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluIiwiaWF0IjoxNzE1MTkyNTcyLCJleHAiOjE3MTUxOTI4MTJ9.YFpiDo7zyoKv0-Kje426Dd2ZAK2U3IHsxIx1u8VVbgo"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Cosmetics\",\r\n    \"description\" : \"This contain all cosmetics products\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8888/ecomm/api/v1/categories"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"name": "content-type",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "<calculated when request is sent>",
+						"name": "content-length",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.32.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluIiwiaWF0IjoxNzE1NjA5MDIwLCJleHAiOjE3MTU2MDkyNjB9.pkUCFuI4BROVIHT2HpVrCDWC0GzYbwznFFYmkJZ6OXg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Electric Guitar\",\n    \"description\": \"A high-quality electric guitar for music enthusiasts\",\n    \"price\": 500,\n    \"category\": \"664200e5f3dcc9cd664288b1\",\n    \"quantity\": 10,\n    \"imageURL\": \"https://example.com/electric_guitar.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8889/ecomm/api/v1/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Find Category Based On Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8889/ecomm/api/v1/categories/Cosmetics"
+			},
+			"response": []
+		},
+		{
+			"name": "Find all categories",
+			"request": {
+				"auth": {
+					"type": "inherit",
+					"inherit": {}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8889/ecomm/api/v1/categories"
+			},
+			"response": []
+		},
+		{
+			"name": "Find category by ID",
+			"request": {
+				"auth": {
+					"type": "inherit",
+					"inherit": {}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8889/ecomm/api/v1/categories/664200e5f3dcc9cd664288b1"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit a category",
+			"request": {
+				"auth": {
+					"type": "inherit",
+					"inherit": {}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Electric\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8889/ecomm/api/v1/categories/66423432bb921b728182a163"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete category by id",
+			"request": {
+				"auth": {
+					"type": "inherit",
+					"inherit": {}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8889/ecomm/api/v1/categories/66423432bb921b728182a163"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Cart",
+			"request": {
+				"auth": {
+					"type": "inherit",
+					"inherit": {}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"devesh\",\n    \"items\": [\n        { \"productId\": \"66425d9c67179e56bbe39a60\", \"quantity\": 2 }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8889/ecomm/api/v1/carts"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cart by UserID",
+			"request": {
+				"auth": {
+					"type": "inherit",
+					"inherit": {}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8889/ecomm/api/v1/carts/devesh"
+			},
+			"response": []
+		},
+		{
+			"name": "Update cart by userID",
+			"request": {
+				"auth": {
+					"type": "inherit",
+					"inherit": {}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"devesh\",\n    \"items\": [\n        { \"productId\": \"66425d9c67179e56bbe39a60\", \"quantity\": 4 }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8889/ecomm/api/v1/carts/devesh"
+			},
+			"response": []
+		}
+	]
+}
