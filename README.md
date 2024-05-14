@@ -23,7 +23,7 @@ This project provides a RESTful API for managing e-commerce operations such as u
 1. Clone the repository:
 
     
-    git clone https://github.com/deveshyaara/eCommProject
+    git clone https://github.com/deveshyaara/E-Commerce-Backend
     
 
 2. Install dependencies
